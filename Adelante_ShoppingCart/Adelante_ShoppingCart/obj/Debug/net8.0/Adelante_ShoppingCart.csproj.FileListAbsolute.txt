@@ -1,0 +1,14 @@
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\bin\Debug\net8.0\Adelante_ShoppingCart.exe
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\bin\Debug\net8.0\Adelante_ShoppingCart.deps.json
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\bin\Debug\net8.0\Adelante_ShoppingCart.runtimeconfig.json
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\bin\Debug\net8.0\Adelante_ShoppingCart.dll
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\bin\Debug\net8.0\Adelante_ShoppingCart.pdb
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\obj\Debug\net8.0\Adelante_ShoppingCart.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\obj\Debug\net8.0\Adelante_ShoppingCart.AssemblyInfoInputs.cache
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\obj\Debug\net8.0\Adelante_ShoppingCart.AssemblyInfo.cs
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\obj\Debug\net8.0\Adelante_ShoppingCart.csproj.CoreCompileInputs.cache
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\obj\Debug\net8.0\Adelante_ShoppingCart.dll
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\obj\Debug\net8.0\refint\Adelante_ShoppingCart.dll
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\obj\Debug\net8.0\Adelante_ShoppingCart.pdb
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\obj\Debug\net8.0\Adelante_ShoppingCart.genruntimeconfig.cache
+C:\Users\Yor\source\repos\Adelante_ShoppingCart\Adelante_ShoppingCart\obj\Debug\net8.0\ref\Adelante_ShoppingCart.dll

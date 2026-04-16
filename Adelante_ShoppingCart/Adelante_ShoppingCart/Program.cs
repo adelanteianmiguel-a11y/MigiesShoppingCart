@@ -95,10 +95,17 @@ namespace Adelante_ShoppingCart
                 int pos = -1;
                 for (int i = 0; i < used; i++)
                 {
-                    if (cartslots[i].Drink.Id == item.Id)
+                    // fixing this because its shuts down the code when its null
+                    if (cartslots[i] != null)
                     {
-                        pos = i;
-                        break;
+                        if (cartslots[i].Drink != null)
+                        {
+                            if (cartslots[i].Drink.Id == item.Id)
+                            {
+                                pos = i;
+                                break;
+                            }
+                        }
                     }
                 }
 
@@ -135,6 +142,35 @@ namespace Adelante_ShoppingCart
                 Console.Write("Add more? (Y/N): ");
                 next = Console.ReadLine(); // the bool that handles the loop
 
+            }
+
+            double grandTotal = 0;
+
+            // receipt time
+            Console.WriteLine("\n===== RECEIPT =====");
+
+            for (int i = 0; i < used; i++)
+            {
+                Console.WriteLine($"{cartslots[i].Drink.Name} x{cartslots[i].Quantity} = Php {cartslots[i].SubTotal}");
+                grandTotal += cartslots[i].SubTotal;
+            }
+
+            Console.WriteLine("\nGrand Total: Php " + grandTotal);
+
+            double discount = 0;
+            if (grandTotal >= 5000)
+            {
+                discount = grandTotal * 0.10;
+            }
+
+            Console.WriteLine("Discount: Php " + discount);
+            Console.WriteLine("Final Total: Php " + (grandTotal - discount));
+
+            // updated stock
+            Console.WriteLine("\n===== UPDATED STOCK =====");
+            foreach (Product p in products)
+            {
+                p.DisplayProduct();
             }
 
         }
