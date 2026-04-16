@@ -8,6 +8,10 @@ namespace Adelante_ShoppingCart
 {
     internal class CartSlot
     {
-        // standby/pass
+        // item info
+        public Product Drink;
+        // new traits
+        public int Quantity;
+        public double SubTotal;
     }
 }

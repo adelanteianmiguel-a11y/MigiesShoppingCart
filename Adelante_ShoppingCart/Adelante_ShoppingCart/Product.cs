@@ -50,5 +50,6 @@ namespace Adelante_ShoppingCart
         {
             Console.WriteLine($"{Id}. {Name,-12} Price: {Price,8:F2} Stock: {RemainingStock}");
         }
+
     }
 }
