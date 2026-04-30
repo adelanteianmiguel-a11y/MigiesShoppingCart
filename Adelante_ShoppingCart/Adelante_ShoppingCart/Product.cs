@@ -10,7 +10,14 @@ namespace Adelante_ShoppingCart
         public int RemainingStock { get; set; }
 
         // constructor
-        public Product(int id, string name, double price, int stock)
+        public Product(int id, string name, string category, double price, int stock)
+{
+    Id = id;
+    Name = name;
+    Category = category;
+    Price = price;
+    RemainingStock = stock;
+}
         {
             Id = id;
             Name = name;
