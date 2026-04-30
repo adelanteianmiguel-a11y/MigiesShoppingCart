@@ -14,16 +14,22 @@ Name
 Category
 Price
 Stock quantity
+
+
 🔎 Product Search
 Search products by name
 Case-insensitive search
 Displays matching results with full details
+
+
 🛒 Cart System
 Add products to cart
 View cart items
 Remove specific items
 Clear entire cart
 Automatically updates stock when items are added or removed
+
+
 💳 Checkout System
 Displays full receipt
 Shows:
@@ -33,21 +39,31 @@ Purchased items
 Grand total
 Discount (10% if ₱5000 or more)
 Final total
+
+
 💰 Payment Validation
 Requires numeric input only
 Rejects invalid input
 Ensures payment is not less than total
 Automatically calculates change
+
+
 📦 Stock Management
 Deducts stock after purchase
 Restores stock when items are removed or cart is cleared
 Prevents buying out-of-stock items
+
+
 ⚠️ Low Stock Alert
 Shows products with stock 5 or below
 Helps identify items that need restocking
+
+
 📜 Order History
 Stores completed transactions during program runtime
 Displays past receipts with totals
+
+
 🤖 AI Usage
 
 I used AI as a learning and development assistant throughout this project. It helped me understand programming concepts, debug errors, and improve the structure of my Shopping Cart System.
