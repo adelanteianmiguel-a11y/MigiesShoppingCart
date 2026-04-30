@@ -93,4 +93,4 @@ AI assisted me in breaking down complex logic such as:
 
 When I encountered errors, AI helped explain the cause so I could fix them myself instead of just copying answers. This improved my understanding of C# programming and problem-solving skills.
 
-I ensured that all code was manually written and understood. AI was only used as a guide for learning, debugging, and improving my programming logic.
+I ensured that all code was manually written and understood. AI was only used as a guide for learning, debugging, and improving my programming logic....
