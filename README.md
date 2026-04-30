@@ -1,16 +1,96 @@
-A# Ian Adelante Shopping Cart System
+# 🛒 Ian Adelante Shopping Cart System (Part 2)
 
-This is a simple console-based shopping cart program in C#. 
-It lets users choose drinks, add them to a cart, check stock, and see a receipt with a discount if the total is 5000 or more.
+This is a console-based Shopping Cart System built in C#.  
+It allows users to browse products, manage a shopping cart, and complete checkout with payment validation, receipt generation, and inventory tracking.
 
-# AI Usage
+The system also includes product search, order history, and low stock alerts.
 
-I used AI a lot during the development of this project as a learning and debugging tool. I used it to help me understand errors in my code, especially when I got confused with logic problems like stock checking, cart updates, duplicate items, and overall program flow.
+---
 
-AI was also very helpful in improving my thinking process. It helped me break down the problem step by step, like how the system should work from selecting a product, checking quantity, validating stock, adding items to the cart, and then computing the final receipt. It helped me see the structure of the program more clearly and organize my ideas better.
+# 🚀 Part 2 Features
 
-When I encountered bugs or errors, I used AI to explain what went wrong and why it happened. Instead of just giving me answers, it helped me understand the cause of the issue so I could fix it myself. This includes problems like null checks, array handling, and logic mistakes in updating the cart.
+## 🛍️ Product Management
+- View all products
+- Each product includes:
+  - ID
+  - Name
+  - Category
+  - Price
+  - Stock quantity
 
-I also used AI to guide me in improving my code structure and making my program flow more correct and readable. It helped me think about edge cases like invalid input, out-of-stock items, full cart situations, and duplicate product handling.
+---
 
-Even though I used AI for help, I did not copy and paste full code. I wrote everything myself, typed the code manually, and made sure I understood every part of it. I only used AI as a guide for learning, debugging, and improving my understanding of how the program works.
+## 🔎 Product Search
+- Search products by name
+- Case-insensitive matching
+- Displays matching product details
+
+---
+
+## 🛒 Cart Management System
+- Add items to cart
+- View cart contents
+- Remove specific items
+- Clear entire cart
+- Prevents invalid stock purchases
+- Automatically updates stock when cart changes
+
+---
+
+## 💳 Checkout System
+- Displays complete receipt
+- Includes:
+  - Receipt number
+  - Date and time
+  - Purchased items
+  - Grand total
+  - Discount (10% if ₱5000 or more)
+  - Final total
+
+---
+
+## 💰 Payment Validation
+- Ensures numeric input only
+- Rejects invalid or insufficient payment
+- Re-prompts until valid payment is entered
+- Calculates correct change
+
+---
+
+## 📦 Stock Management
+- Deducts stock after purchase
+- Restores stock when items are removed or cart is cleared
+- Prevents out-of-stock purchases
+
+---
+
+## ⚠️ Low Stock Alert
+- Displays products with stock 5 or below
+- Helps identify items for restocking
+
+---
+
+## 📜 Order History
+- Stores completed transactions during runtime
+- Displays past receipts with totals
+
+---
+<img width="1901" height="910" alt="Screenshot 2026-04-30 212558" src="https://github.com/user-attachments/assets/fcf0c5f3-2d13-4a3a-88c4-e81f5bdc9668" />
+
+
+---
+
+# 🤖 AI Usage
+
+I used AI as a learning and development tool throughout this project. It helped me understand programming concepts, debug errors, and improve the overall structure of my Shopping Cart System.
+
+AI assisted me in breaking down complex logic such as:
+- Cart management system design
+- Stock validation and updates
+- Payment validation and receipt computation
+- Program flow and menu structure
+- Handling edge cases like invalid input and empty cart scenarios
+
+When I encountered errors, AI helped explain the cause so I could fix them myself instead of just copying answers. This improved my understanding of C# programming and problem-solving skills.
+
+I ensured that all code was manually written and understood. AI was only used as a guide for learning, debugging, and improving my programming logic.
