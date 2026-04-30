@@ -1,16 +1,77 @@
-A# Ian Adelante Shopping Cart System
+# 🛒 Ian Adelante Shopping Cart System (Part 2)
 
-This is a simple console-based shopping cart program in C#. 
-It lets users choose drinks, add them to a cart, check stock, and see a receipt with a discount if the total is 5000 or more.
+This is a console-based Shopping Cart System built in C#.
+It simulates a simple store where users can browse products, manage their cart, and complete a checkout process with payment validation and receipt generation.
 
-# AI Usage
+The system also includes stock management, product search, order history, and low-stock alerts.
 
-I used AI a lot during the development of this project as a learning and debugging tool. I used it to help me understand errors in my code, especially when I got confused with logic problems like stock checking, cart updates, duplicate items, and overall program flow.
+🚀 Features (Part 2 Update)
+🛍️ Product Management
+View all available products
+Each product includes:
+ID
+Name
+Category
+Price
+Stock quantity
+🔎 Product Search
+Search products by name
+Case-insensitive search
+Displays matching results with full details
+🛒 Cart System
+Add products to cart
+View cart items
+Remove specific items
+Clear entire cart
+Automatically updates stock when items are added or removed
+💳 Checkout System
+Displays full receipt
+Shows:
+Receipt number
+Date and time
+Purchased items
+Grand total
+Discount (10% if ₱5000 or more)
+Final total
+💰 Payment Validation
+Requires numeric input only
+Rejects invalid input
+Ensures payment is not less than total
+Automatically calculates change
+📦 Stock Management
+Deducts stock after purchase
+Restores stock when items are removed or cart is cleared
+Prevents buying out-of-stock items
+⚠️ Low Stock Alert
+Shows products with stock 5 or below
+Helps identify items that need restocking
+📜 Order History
+Stores completed transactions during program runtime
+Displays past receipts with totals
+🤖 AI Usage
 
-AI was also very helpful in improving my thinking process. It helped me break down the problem step by step, like how the system should work from selecting a product, checking quantity, validating stock, adding items to the cart, and then computing the final receipt. It helped me see the structure of the program more clearly and organize my ideas better.
+I used AI as a learning and development assistant throughout this project. It helped me understand programming concepts, debug errors, and improve the structure of my Shopping Cart System.
 
-When I encountered bugs or errors, I used AI to explain what went wrong and why it happened. Instead of just giving me answers, it helped me understand the cause of the issue so I could fix it myself. This includes problems like null checks, array handling, and logic mistakes in updating the cart.
+AI was especially helpful in breaking down complex logic such as:
 
-I also used AI to guide me in improving my code structure and making my program flow more correct and readable. It helped me think about edge cases like invalid input, out-of-stock items, full cart situations, and duplicate product handling.
+Stock management and validation
+Cart handling (add, remove, clear)
+Payment validation and change computation
+Receipt generation flow
+Program structure and menu system design
 
-Even though I used AI for help, I did not copy and paste full code. I wrote everything myself, typed the code manually, and made sure I understood every part of it. I only used AI as a guide for learning, debugging, and improving my understanding of how the program works.
+When I encountered errors or logical issues, AI helped me understand the cause rather than just giving direct answers. This improved my problem-solving skills and helped me fix issues like array handling, null checks, and incorrect logic flow.
+
+I also used AI to improve code readability and ensure that the program follows a clean and structured flow. It guided me in handling edge cases such as invalid input, insufficient stock, and full cart scenarios.
+
+Even though AI was used as a guide, all code was manually written and understood by me. I did not copy-paste blindly. I made sure every part of the system was implemented with my own understanding and learning.
+
+📌 Summary
+
+This project demonstrates:
+
+Object-Oriented Programming (OOP)
+Array and cart management
+Input validation
+Real-world checkout system logic
+Basic inventory system simulation
