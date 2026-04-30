@@ -1,10 +1,9 @@
-﻿using System.Drawing;
+using System;
 
 namespace Adelante_ShoppingCart
 {
     class Program
     {
-        // changing it to static 
         static void Main()
         {
             // Drink Section of the Shop
@@ -28,25 +27,24 @@ namespace Adelante_ShoppingCart
             };
 
             CartSlot[] cartslots = new CartSlot[10];
-            int used = 0;       // number of used cart slot
-            string next = "Y"; // assuming that user wants to continue first (acting as bool)
+            int used = 0;
+            string next = "Y";
 
             // shopping loop
-            while (next.ToUpper() == "Y")
+            while (!string.IsNullOrEmpty(next) && next.ToUpper() == "Y")
             {
                 Console.WriteLine("+---( SOSYAL NA TINDAHAN )---+");
-                // Show all drinks one by one
+
                 foreach (Product p in products)
                 {
                     p.DisplayProduct();
                 }
 
-                // ask which drink they want
                 Console.Write("Select ID: ");
-                int id = 0;
+                int id;
                 bool validCode = int.TryParse(Console.ReadLine(), out id);
 
-                if (validCode == false)
+                if (!validCode)
                 {
                     Console.WriteLine("Invalid entry.");
                     continue;
@@ -58,22 +56,19 @@ namespace Adelante_ShoppingCart
                     continue;
                 }
 
-                // getting the item
                 Product item = products[id - 1];
 
-                // If no stock left, let the user know
                 if (item.RemainingStock == 0)
                 {
                     Console.WriteLine("Empty shelf.");
                     continue;
                 }
 
-                // quantity checker
                 Console.Write("Enter quantity: ");
                 int buy;
                 bool intQuantity = int.TryParse(Console.ReadLine(), out buy);
 
-                if (intQuantity == false)
+                if (!intQuantity)
                 {
                     Console.WriteLine("Quantity error.");
                     continue;
@@ -85,31 +80,24 @@ namespace Adelante_ShoppingCart
                     continue;
                 }
 
-                if (item.HasEnoughStock(buy) == false)
+                if (!item.HasEnoughStock(buy))
                 {
                     Console.WriteLine("Insufficient stock.");
                     continue;
                 }
 
-                // check if this drink is already in the cart
+                // check if item already exists in cart
                 int pos = -1;
                 for (int i = 0; i < used; i++)
                 {
-                    // fixing this because its shuts down the code when its null
-                    if (cartslots[i] != null)
+                    if (cartslots[i]?.Drink != null &&
+                        cartslots[i].Drink.Id == item.Id)
                     {
-                        if (cartslots[i].Drink != null)
-                        {
-                            if (cartslots[i].Drink.Id == item.Id)
-                            {
-                                pos = i;
-                                break;
-                            }
-                        }
+                        pos = i;
+                        break;
                     }
                 }
 
-                // computing the subtotal
                 double subtotal = item.GetItemTotal(buy);
 
                 if (pos == -1)
@@ -128,34 +116,37 @@ namespace Adelante_ShoppingCart
                 }
                 else
                 {
-                    // if its already in cart, just update quantity and subtotal
                     cartslots[pos].Quantity += buy;
                     cartslots[pos].SubTotal =
                         cartslots[pos].Drink.GetItemTotal(cartslots[pos].Quantity);
                 }
 
-                // deduct the stock after adding the item to the cart
                 item.DeductStock(buy);
                 Console.WriteLine("Added to cart.");
 
-                // ask the user if they still want to add more drinks
                 Console.Write("Add more? (Y/N): ");
-                next = Console.ReadLine(); // the bool that handles the loop
+                next = Console.ReadLine();
 
+                if (string.IsNullOrEmpty(next))
+                {
+                    next = "N";
+                }
             }
 
             double grandTotal = 0;
 
-            // receipt time
             Console.WriteLine("\n===== RECEIPT =====");
 
             for (int i = 0; i < used; i++)
             {
-                Console.WriteLine($"{cartslots[i].Drink.Name} x{cartslots[i].Quantity} = Php {cartslots[i].SubTotal}");
-                grandTotal += cartslots[i].SubTotal;
+                if (cartslots[i] != null && cartslots[i].Drink != null)
+                {
+                    Console.WriteLine($"{cartslots[i].Drink.Name} x{cartslots[i].Quantity} = Php {cartslots[i].SubTotal:F2}");
+                    grandTotal += cartslots[i].SubTotal;
+                }
             }
 
-            Console.WriteLine("\nGrand Total: Php " + grandTotal);
+            Console.WriteLine($"\nGrand Total: Php {grandTotal:F2}");
 
             double discount = 0;
             if (grandTotal >= 5000)
@@ -163,16 +154,14 @@ namespace Adelante_ShoppingCart
                 discount = grandTotal * 0.10;
             }
 
-            Console.WriteLine("Discount: Php " + discount);
-            Console.WriteLine("Final Total: Php " + (grandTotal - discount));
+            Console.WriteLine($"Discount: Php {discount:F2}");
+            Console.WriteLine($"Final Total: Php {(grandTotal - discount):F2}");
 
-            // updated stock
             Console.WriteLine("\n===== UPDATED STOCK =====");
             foreach (Product p in products)
             {
                 p.DisplayProduct();
             }
-
         }
     }
 }
