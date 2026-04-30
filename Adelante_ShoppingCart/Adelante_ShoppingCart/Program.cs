@@ -9,21 +9,21 @@ namespace Adelante_ShoppingCart
             // Drink Section of the Shop
             Product[] products =
             {
-                new Product(1, "C2 Apple", 35, 20),
-                new Product(2, "C2 Lemon", 35, 20),
-                new Product(3, "Pocari Sweat", 55, 15),
-                new Product(4, "Coke Zero", 45, 18),
-                new Product(5, "Sprite", 45, 18),
-                new Product(6, "Royal", 45, 18),
-                new Product(7, "Mountain Dew", 45, 18),
-                new Product(8, "Minute Maid", 50, 12),
-                new Product(9, "Gatorade Blue", 60, 10),
-                new Product(10, "Gatorade Red", 60, 10),
-                new Product(11, "Yakult Pack", 95, 8),
-                new Product(12, "Vitamilk", 40, 14),
-                new Product(13, "Dutch Mill", 38, 14),
-                new Product(14, "Bottled Water", 25, 25),
-                new Product(15, "Iced Coffee", 75, 9)
+                new Product(1, "C2 Apple", "Drinks", 35, 20),
+                new Product(2, "C2 Lemon", "Drinks", 35, 20),
+                new Product(3, "Pocari Sweat", "Drinks", 55, 15),
+                new Product(4, "Coke Zero", "Drinks", 45, 18),
+                new Product(5, "Sprite", 45, "Drinks", 18),
+                new Product(6, "Royal", 45, "Drinks", 18),
+                new Product(7, "Mountain Dew", "Drinks", 45, 18),
+                new Product(8, "Minute Maid", "Drinks", 50, 12),
+                new Product(9, "Gatorade Blue", "Drinks", 60, 10),
+                new Product(10, "Gatorade Red", "Drinks", 60, 10),
+                new Product(11, "Yakult Pack", "Drinks", 95, 8),
+                new Product(12, "Vitamilk", 40, "Drinks", 14),
+                new Product(13, "Dutch Mill", 38, "Drinks", 14),
+                new Product(14, "Bottled Water", "Drinks", 25, 25),
+                new Product(15, "Iced Coffee", "Drinks", 75, 9)
             };
 
             CartSlot[] cartslots = new CartSlot[10];
