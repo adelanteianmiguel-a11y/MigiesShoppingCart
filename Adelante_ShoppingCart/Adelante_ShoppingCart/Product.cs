@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace Adelante_ShoppingCart
 {
-    internal class Product
+    class Product
     {
-        // This class is for every drink chilling in the cooler
-        public int Id;
-        public string Name;
-        public double Price;
-        public int RemainingStock;
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public int RemainingStock { get; set; }
 
-        // When we create a new drink item, we fill in its info here
+        // constructor
         public Product(int id, string name, double price, int stock)
         {
             Id = id;
@@ -23,33 +18,31 @@ namespace Adelante_ShoppingCart
             RemainingStock = stock;
         }
 
-        // Additional methods
-
-        // Quick total: price x quantity
-        public double GetItemTotal(int quantity)
+        // display product info
+        public void DisplayProduct()
         {
-            return Price * quantity;
+            Console.WriteLine($"{Id}. {Name} - Php {Price:F2} | Stock: {RemainingStock}");
         }
 
-        // Checks if there's enough stock left
+        // check if enough stock
         public bool HasEnoughStock(int quantity)
         {
             return quantity <= RemainingStock;
         }
 
-        // Updates stock after buying
+        // compute total price
+        public double GetItemTotal(int quantity)
+        {
+            return Price * quantity;
+        }
+
+        // deduct stock after purchase
         public void DeductStock(int quantity)
         {
-            RemainingStock -= quantity;
+            if (quantity <= RemainingStock)
+            {
+                RemainingStock -= quantity;
+            }
         }
-
-        // Must have method
-
-        // To Show the drinks
-        public void DisplayProduct()
-        {
-            Console.WriteLine($"{Id}. {Name,-12} Price: {Price,8:F2} Stock: {RemainingStock}");
-        }
-
     }
 }
