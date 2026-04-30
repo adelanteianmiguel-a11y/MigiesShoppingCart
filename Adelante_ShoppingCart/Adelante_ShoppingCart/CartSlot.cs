@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Adelante_ShoppingCart
 {
-    internal class CartSlot
+    class CartSlot
     {
-        // item info
-        public Product Drink;
-        // new traits
-        public int Quantity;
-        public double SubTotal;
+        public Product Drink { get; set; }
+        public int Quantity { get; set; }
+        public double SubTotal { get; set; }
+
+        // optional constructor (safe default)
+        public CartSlot()
+        {
+            Drink = null;
+            Quantity = 0;
+            SubTotal = 0;
+        }
     }
 }
