@@ -13,15 +13,15 @@ namespace Adelante_ShoppingCart
                 new Product(2, "C2 Lemon", "Drinks", 35, 20),
                 new Product(3, "Pocari Sweat", "Drinks", 55, 15),
                 new Product(4, "Coke Zero", "Drinks", 45, 18),
-                new Product(5, "Sprite", 45, "Drinks", 18),
-                new Product(6, "Royal", 45, "Drinks", 18),
+                new Product(5, "Sprite", "Drinks", 45, 18),
+                new Product(6, "Royal", "Drinks", 45, 18),
                 new Product(7, "Mountain Dew", "Drinks", 45, 18),
                 new Product(8, "Minute Maid", "Drinks", 50, 12),
                 new Product(9, "Gatorade Blue", "Drinks", 60, 10),
                 new Product(10, "Gatorade Red", "Drinks", 60, 10),
                 new Product(11, "Yakult Pack", "Drinks", 95, 8),
-                new Product(12, "Vitamilk", 40, "Drinks", 14),
-                new Product(13, "Dutch Mill", 38, "Drinks", 14),
+                new Product(12, "Vitamilk", "Drinks", 40, 14),
+                new Product(13, "Dutch Mill", "Drinks", 38, 14),
                 new Product(14, "Bottled Water", "Drinks", 25, 25),
                 new Product(15, "Iced Coffee", "Drinks", 75, 9)
             };
@@ -30,10 +30,20 @@ namespace Adelante_ShoppingCart
             int used = 0;
             string next = "Y";
 
-            // shopping loop
             while (!string.IsNullOrEmpty(next) && next.ToUpper() == "Y")
             {
-                Console.WriteLine("+---( SOSYAL NA TINDAHAN )---+");
+                Console.WriteLine("\n+---( SOSYAL NA TINDAHAN )---+");
+
+                // MENU OPTION FOR SEARCH
+                Console.WriteLine("Type 'S' to search product OR press ENTER to continue");
+
+                string menuChoice = Console.ReadLine();
+
+                if (menuChoice.ToUpper() == "S")
+                {
+                    SearchProduct(products);
+                    continue;
+                }
 
                 foreach (Product p in products)
                 {
@@ -68,15 +78,9 @@ namespace Adelante_ShoppingCart
                 int buy;
                 bool intQuantity = int.TryParse(Console.ReadLine(), out buy);
 
-                if (!intQuantity)
+                if (!intQuantity || buy <= 0)
                 {
-                    Console.WriteLine("Quantity error.");
-                    continue;
-                }
-
-                if (buy <= 0)
-                {
-                    Console.WriteLine("Quantity must be greater than zero.");
+                    Console.WriteLine("Invalid quantity.");
                     continue;
                 }
 
@@ -86,8 +90,8 @@ namespace Adelante_ShoppingCart
                     continue;
                 }
 
-                // check if item already exists in cart
                 int pos = -1;
+
                 for (int i = 0; i < used; i++)
                 {
                     if (cartslots[i]?.Drink != null &&
@@ -139,28 +143,46 @@ namespace Adelante_ShoppingCart
 
             for (int i = 0; i < used; i++)
             {
-                if (cartslots[i] != null && cartslots[i].Drink != null)
-                {
-                    Console.WriteLine($"{cartslots[i].Drink.Name} x{cartslots[i].Quantity} = Php {cartslots[i].SubTotal:F2}");
-                    grandTotal += cartslots[i].SubTotal;
-                }
+                Console.WriteLine($"{cartslots[i].Drink.Name} x{cartslots[i].Quantity} = Php {cartslots[i].SubTotal:F2}");
+                grandTotal += cartslots[i].SubTotal;
             }
+
+            double discount = grandTotal >= 5000 ? grandTotal * 0.10 : 0;
+            double final = grandTotal - discount;
 
             Console.WriteLine($"\nGrand Total: Php {grandTotal:F2}");
-
-            double discount = 0;
-            if (grandTotal >= 5000)
-            {
-                discount = grandTotal * 0.10;
-            }
-
             Console.WriteLine($"Discount: Php {discount:F2}");
-            Console.WriteLine($"Final Total: Php {(grandTotal - discount):F2}");
+            Console.WriteLine($"Final Total: Php {final:F2}");
 
             Console.WriteLine("\n===== UPDATED STOCK =====");
             foreach (Product p in products)
             {
                 p.DisplayProduct();
+            }
+        }
+
+        // ================= SEARCH FUNCTION =================
+        static void SearchProduct(Product[] products)
+        {
+            Console.Write("Enter product name to search: ");
+            string input = Console.ReadLine().ToLower();
+
+            bool found = false;
+
+            Console.WriteLine("\n--- SEARCH RESULTS ---");
+
+            foreach (Product p in products)
+            {
+                if (p.Name.ToLower().Contains(input))
+                {
+                    Console.WriteLine($"{p.Id}. [{p.Category}] {p.Name} - Php {p.Price} - Stock: {p.RemainingStock}");
+                    found = true;
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine("No product found.");
             }
         }
     }
